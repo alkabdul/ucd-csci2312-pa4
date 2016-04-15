@@ -32,7 +32,7 @@ using namespace Testing;
 // - - - - - - - - - - P I E C E - - - - - - - - - -
 
 // Smoketest: constructor, copy constructor, destructor, resources
-void test_piece_smoketest(ErrorContext &ec) {
+/*void test_piece_smoketest(ErrorContext &ec) {
     bool pass;
 
     ec.DESC("--- Test - Unit - Smoketest ---");
@@ -880,7 +880,7 @@ void test_action_smoketest(ErrorContext &ec) {
         pass = pass && (Game::reachSurroundings(simpos, newpos) == ActionType::SW);
     }
     ec.result(pass);
-}
+}*/
 
 
 // - - - - - - - - - - G A M E - - - - - - - - - -
@@ -894,8 +894,10 @@ void test_game_smoketest(ErrorContext &ec) {
     ec.DESC("constructor, empty game, default grid size, destructor");
     pass = true;
     for (int i = 0; i < 10; i ++) {
-        Game g;
+        std::cout<<"inside smokeTest11"<<std::endl;
 
+        Game g;
+        std::cout<<"inside smokeTest"<<std::endl;
         pass = (g.getWidth() == 3 &&
                 g.getHeight() == 3 &&
                 g.getNumPieces() == 0);
@@ -928,7 +930,7 @@ void test_game_smoketest(ErrorContext &ec) {
 }
 
 // populate the game grid
-void test_game_populate(ErrorContext &ec, unsigned int numRuns) {
+/*void test_game_populate(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
 
     // Run at least once!!
@@ -1649,4 +1651,4 @@ void test_game_play(ErrorContext &ec, unsigned int numRuns) {
             ec.result(pass);
         }
     }
-}
+}*/
