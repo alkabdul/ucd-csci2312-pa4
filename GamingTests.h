@@ -14,7 +14,7 @@ using namespace Testing;
 // - - - - - - - - - Tests: class Piece - - - - - - - - - -
 
 // Smoketest: constructor, copy constructor, destructor, resources
-void test_piece_smoketest(ErrorContext &ec);
+/*void test_piece_smoketest(ErrorContext &ec);
 
 // Piece id-s, names, and printing
 void test_piece_print(ErrorContext &ec, unsigned int numRuns);
@@ -30,18 +30,18 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns);
 
 // Piece interaction operator*
 void test_piece_interaction(ErrorContext &ec, unsigned int numRuns);
-
+*/
 
 // - - - - - - - - - Tests: struct Surroundings - - - - - - - - - -
 
 // Surroundings (vector of enums of type PieceType)
-void test_surroundings_smoketest(ErrorContext &ec);
+//void test_surroundings_smoketest(ErrorContext &ec);
 
 
 // - - - - - - - - - Tests: enum ActionType - - - - - - - - - -
 
 // Action smoke test
-void test_action_smoketest(ErrorContext &ec);
+//void test_action_smoketest(ErrorContext &ec);
 
 
 // - - - - - - - - - Tests: class Game - - - - - - - - - -
@@ -53,7 +53,7 @@ void test_game_smoketest(ErrorContext &ec);
 void test_game_populate(ErrorContext &ec, unsigned int numRuns);
 
 // Getting a Piece by position
-void test_game_getpiece(ErrorContext &ec, unsigned int numRuns);
+/*void test_game_getpiece(ErrorContext &ec, unsigned int numRuns);
 
 // Printing of a game
 void test_game_print(ErrorContext &ec, unsigned int numRuns);
@@ -63,5 +63,5 @@ void test_game_randomization(ErrorContext &ec, unsigned int numRuns);
 
 // Playing and termination of a game
 void test_game_play(ErrorContext &ec, unsigned int numRuns);
-
+*/
 #endif //PA5GAME_GAMINGTESTS_H

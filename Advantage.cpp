@@ -7,3 +7,19 @@
 //
 
 #include <stdio.h>
+#include "Advantage.h"
+
+using namespace Gaming;
+
+Advantage::Advantage(const Game &g, const Position &p, double capacity):Resource(g, p, capacity){
+    
+    
+    
+    
+}
+
+Advantage::~Advantage(){
+    
+    
+    
+}

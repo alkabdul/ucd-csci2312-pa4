@@ -7,3 +7,19 @@
 //
 
 #include <stdio.h>
+#include "Strategic.h"
+using namespace Gaming;
+
+Strategic::Strategic (const Game &g, const Position &p, double energy, Strategy *s):Agent(g, p, energy){
+    
+    
+    
+    
+    
+}
+
+Strategic::~Strategic(){
+    
+    
+    
+}

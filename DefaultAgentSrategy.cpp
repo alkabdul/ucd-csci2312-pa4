@@ -7,3 +7,17 @@
 //
 
 #include <stdio.h>
+#include "DefaultAgentStrategy.h"
+using namespace Gaming;
+
+DefaultAgentStrategy::DefaultAgentStrategy(){
+    
+    
+    
+    
+}
+DefaultAgentStrategy::~DefaultAgentStrategy(){
+    
+    
+    
+}

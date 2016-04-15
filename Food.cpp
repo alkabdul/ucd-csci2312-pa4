@@ -7,3 +7,18 @@
 //
 
 #include <stdio.h>
+#include "Food.h"
+
+using namespace Gaming;
+
+Food::Food(const Game &g, const Position &p, double capacity):Resource(g,p,capacity){
+    
+    
+    
+}
+
+Food::~Food(){
+    
+    
+    
+}

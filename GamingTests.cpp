@@ -930,7 +930,7 @@ void test_game_smoketest(ErrorContext &ec) {
 }
 
 // populate the game grid
-/*void test_game_populate(ErrorContext &ec, unsigned int numRuns) {
+void test_game_populate(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
 
     // Run at least once!!
@@ -1061,7 +1061,7 @@ void test_game_smoketest(ErrorContext &ec) {
 }
 
 // Getting a Piece by position
-void test_game_getpiece(ErrorContext &ec, unsigned int numRuns){
+/*void test_game_getpiece(ErrorContext &ec, unsigned int numRuns){
     bool pass;
 
     // Run at least once!!

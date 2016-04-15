@@ -7,3 +7,13 @@
 //
 
 #include <stdio.h>
+#include "Resource.h"
+
+using namespace Gaming;
+
+Resource::Resource(const Game &g, const Position &p, double capacity):Piece(g ,p){
+    
+    
+    __capacity = capacity;
+    
+}

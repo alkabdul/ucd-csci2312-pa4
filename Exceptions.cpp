@@ -45,3 +45,42 @@ std::ostream& Gaming:: operator<<(std::ostream &os, const GamingException &ex){
     os << ex.__name << std::endl;
     return os;
 }
+
+
+OutOfBoundsEx::OutOfBoundsEx(unsigned maxWidth, unsigned maxHeight, unsigned width, unsigned height): DimensionEx(maxWidth, maxHeight,  width,  height) {
+    
+    __exp_width= maxWidth;
+    __exp_height = maxHeight;
+    __width = width;
+    __height = height;
+    __name = "OutOfBoundsEx";
+
+}
+
+PositionEx::PositionEx(unsigned x, unsigned y){
+    __x = x;
+    __y = y;
+    __name ="PositionEx";
+    
+    
+}
+
+
+PositionNonemptyEx::PositionNonemptyEx(unsigned x, unsigned y):PositionEx(x,y){
+__name ="PositionNonemptyEx";
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
