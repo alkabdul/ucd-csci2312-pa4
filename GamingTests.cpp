@@ -894,10 +894,8 @@ void test_game_smoketest(ErrorContext &ec) {
     ec.DESC("constructor, empty game, default grid size, destructor");
     pass = true;
     for (int i = 0; i < 10; i ++) {
-        std::cout<<"inside smokeTest11"<<std::endl;
 
         Game g;
-        std::cout<<"inside smokeTest"<<std::endl;
         pass = (g.getWidth() == 3 &&
                 g.getHeight() == 3 &&
                 g.getNumPieces() == 0);
@@ -943,12 +941,16 @@ void test_game_populate(ErrorContext &ec, unsigned int numRuns) {
 
         {
             Game g;
-
             g.addSimple(0, 0);
+
             g.addStrategic(1, 1);
+
             g.addFood(0, 2);
+
             g.addFood(2, 1);
+
             g.addAdvantage(2, 2);
+
 
             pass = (g.getNumPieces() == 5) &&
                    (g.getNumAgents() == 2) &&

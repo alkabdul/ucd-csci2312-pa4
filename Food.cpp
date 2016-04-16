@@ -11,6 +11,9 @@
 
 using namespace Gaming;
 
+const char Food::FOOD_ID = 'F';
+
+
 Food::Food(const Game &g, const Position &p, double capacity):Resource(g,p,capacity){
     
     
@@ -19,6 +22,13 @@ Food::Food(const Game &g, const Position &p, double capacity):Resource(g,p,capac
 
 Food::~Food(){
     
+    
+    
+}
+
+void Food::print(std::ostream &os) const{
+    
+    std::cout<<"FOOD$$$$$$$$$$$"<<std::endl;
     
     
 }

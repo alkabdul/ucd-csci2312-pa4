@@ -21,3 +21,11 @@ DefaultAgentStrategy::~DefaultAgentStrategy(){
     
     
 }
+
+ActionType DefaultAgentStrategy:: operator()(const Surroundings &s) const{
+    
+
+    ActionType temp = N;
+    return temp;
+    
+}

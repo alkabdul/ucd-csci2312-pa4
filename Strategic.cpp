@@ -9,11 +9,15 @@
 #include <stdio.h>
 #include "Strategic.h"
 using namespace Gaming;
+const char Strategic::STRATEGIC_ID = 'T';
+
 
 Strategic::Strategic (const Game &g, const Position &p, double energy, Strategy *s):Agent(g, p, energy){
     
     
-    
+    setPosition(p);
+    setTurned(false);
+
     
     
 }
@@ -21,5 +25,20 @@ Strategic::Strategic (const Game &g, const Position &p, double energy, Strategy 
 Strategic::~Strategic(){
     
     
+    
+}
+
+void Strategic:: print(std::ostream &os) const{
+    
+    
+    std::cout<<"STRATEGIC@@@@@@@@@@@@@"<<std::endl;
+    
+}
+
+ActionType Strategic:: takeTurn(const Surroundings &s) const{
+    
+    
+    ActionType temp = SE;
+    return temp;
     
 }

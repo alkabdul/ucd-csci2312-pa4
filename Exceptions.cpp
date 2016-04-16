@@ -21,6 +21,8 @@ DimensionEx::DimensionEx(unsigned expWidth, unsigned expHeight, unsigned width, 
 }
 
 
+
+
 InsufficientDimensionsEx::InsufficientDimensionsEx(unsigned minWidth, unsigned minHeight, unsigned width, unsigned height) : DimensionEx(minWidth, minHeight,  width,  height){
    
     __exp_width= minWidth;
@@ -57,6 +59,16 @@ OutOfBoundsEx::OutOfBoundsEx(unsigned maxWidth, unsigned maxHeight, unsigned wid
 
 }
 
+void OutOfBoundsEx::  __print_args(std::ostream &os) const{
+    
+    
+    std:: cout << __exp_width << " , " << __exp_height << " , " << __width << " , " << __height <<std::endl;
+    
+    
+}
+
+
+
 PositionEx::PositionEx(unsigned x, unsigned y){
     __x = x;
     __y = y;
@@ -64,7 +76,13 @@ PositionEx::PositionEx(unsigned x, unsigned y){
     
     
 }
-
+void PositionEx::__print_args(std::ostream &os)const{
+    
+    std::cout<< __x << " , " << __y <<std::endl;
+    
+    
+    
+}
 
 PositionNonemptyEx::PositionNonemptyEx(unsigned x, unsigned y):PositionEx(x,y){
 __name ="PositionNonemptyEx";
