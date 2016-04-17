@@ -32,7 +32,7 @@ using namespace Testing;
 // - - - - - - - - - - P I E C E - - - - - - - - - -
 
 // Smoketest: constructor, copy constructor, destructor, resources
-/*void test_piece_smoketest(ErrorContext &ec) {
+void test_piece_smoketest(ErrorContext &ec) {
     bool pass;
 
     ec.DESC("--- Test - Unit - Smoketest ---");
@@ -208,7 +208,8 @@ void test_piece_energy(ErrorContext &ec, unsigned int numRuns) {
 
             Agent *agent = &s;
             Resource *r0 = &f, *r1 = &a;
-
+            
+            
             pass = (agent->getEnergy() == Game::STARTING_AGENT_ENERGY) &&
                     (r0->getCapacity() == Game::STARTING_RESOURCE_CAPACITY) &&
                     (r1->getCapacity() == Game::STARTING_RESOURCE_CAPACITY * Advantage::ADVANTAGE_MULT_FACTOR);
@@ -219,7 +220,7 @@ void test_piece_energy(ErrorContext &ec, unsigned int numRuns) {
 }
 
 // Taking turns
-void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
+/*void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
 
     // Run at least once!!

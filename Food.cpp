@@ -32,3 +32,24 @@ void Food::print(std::ostream &os) const{
     
     
 }
+
+
+
+
+PieceType Piece::getType() const{
+    
+    
+    return PieceType::FOOD;
+}
+std::ostream& Gaming::operator<<(std::ostream &os, const Piece &piece)
+{
+    
+    os << piece.getType() <<piece.__id;
+    
+    return os;
+}
+
+
+
+
+

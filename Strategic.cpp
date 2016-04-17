@@ -42,3 +42,22 @@ ActionType Strategic:: takeTurn(const Surroundings &s) const{
     return temp;
     
 }
+
+
+PieceType Piece::getType() const{
+    
+    
+    return PieceType::STRATEGIC;
+}
+std::ostream& Gaming::operator<<(std::ostream &os, const Piece &piece)
+{
+    
+    os << piece.getType() <<piece.__id;
+    
+    return os;
+}
+
+
+
+
+

@@ -111,9 +111,7 @@ unsigned int Game:: getNumResources() const{
         }
         
     }
-    cout<<"Agents"<<getNumAgents()<<endl;
-    cout<<"Pieces"<<getNumPieces()<<endl;
-
+   
     
     return getNumPieces()-getNumAgents();
 
@@ -198,10 +196,7 @@ void Game:: populate(){
     // sufficient for our casual purposes
     std::default_random_engine gen;
     std::uniform_int_distribution<int> d(0, __width * __height);
-    
-    cout << "Advantages number before pop"<< numAdvantages <<endl;
-    cout << "Food number before pop"<< numFoods <<endl;
-
+ 
     // populate Strategic agents
     while (numStrategic > 0) {
         int i = d(gen); // random index in the grid vector
@@ -225,7 +220,6 @@ void Game:: populate(){
         
         
     }
-    cout<<"Num strategic"<<numPieces<<endl;
     // populate Simple agents
     // ...
     
@@ -250,9 +244,7 @@ void Game:: populate(){
         
         
     }
-    cout<<"Num simple"<<numPieces<<endl;
 
-    cout<<"Numberof Food"<<numFoods<<endl;
     //populate food resources
     while (numFoods > 0) {
         int i = d(gen); // random index in the grid vector
@@ -275,7 +267,6 @@ void Game:: populate(){
         
     }
 
-    cout<<"Num Food"<<numPieces<<endl;
 
     
     //Populate Advantage resources
@@ -300,7 +291,6 @@ void Game:: populate(){
         
     }
 
-    cout<<"Num Advantages"<<numPieces<<endl;
 
     
     
@@ -398,5 +388,18 @@ std::ostream& Gaming::operator<<(std::ostream &os, const Game &game){
     
     return os;
 }
+
+const Piece* Game::getPiece(unsigned int x, unsigned int y) const{
+    
+    int pos = 0;
+    
+    pos =__width * x + y;
+    
+    return __grid.at(pos);
+    
+}
+
+
+
 
 

@@ -17,6 +17,7 @@ Simple::Simple(const Game &g, const Position &p, double energy):Agent(g,p, energ
     
     setPosition(p);
     setTurned(false);
+    
 }
 
 Simple::~Simple(){
@@ -39,3 +40,21 @@ ActionType Simple::takeTurn(const Surroundings &s) const{
     
     
 }
+
+PieceType Piece::getType() const{
+    
+    
+    return PieceType::SIMPLE;
+}
+
+std::ostream& Gaming::operator<<(std::ostream &os, const Piece &piece)
+{
+    
+    os << piece.getType() <<piece.__id;
+    
+    return os;
+}
+
+
+
+

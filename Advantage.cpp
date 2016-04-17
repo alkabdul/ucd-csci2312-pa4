@@ -18,8 +18,9 @@ const double Advantage::ADVANTAGE_MULT_FACTOR = 2.0;
 Advantage::Advantage(const Game &g, const Position &p, double capacity):Resource(g, p, capacity){
     
     
-    
-    
+    __capacity *= ADVANTAGE_MULT_FACTOR;
+
+
 }
 
 Advantage::~Advantage(){
@@ -36,12 +37,33 @@ double Advantage:: consume(){
 
 double Advantage:: getCapacity() const{
     
-    return 0.0;
+    return __capacity;
     
 }
+
 
 void Advantage::print(std::ostream &os)const{
     
     std::cout<<"ADVANTAGE!!!!!"<<std::endl;
     
 }
+
+
+
+PieceType Piece::getType() const{
+    
+    
+    return PieceType::ADVANTAGE;
+}
+
+std::ostream& Gaming::operator<<(std::ostream &os, const Piece &piece)
+{
+    
+    os << piece.getType() <<piece.__id;
+    
+    return os;
+}
+
+
+
+
