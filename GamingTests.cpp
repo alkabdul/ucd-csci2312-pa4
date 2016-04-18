@@ -114,7 +114,7 @@ void test_piece_print(ErrorContext &ec, unsigned int numRuns) {
 }
 
 // Piece aging and viability
-void test_piece_aging(ErrorContext &ec, unsigned int numRuns) {
+/*void test_piece_aging(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
 
     // Run at least once!!
@@ -185,7 +185,7 @@ void test_piece_aging(ErrorContext &ec, unsigned int numRuns) {
 
     }
 }
-
+*/
 // Piece energy/capacity
 void test_piece_energy(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
@@ -637,11 +637,11 @@ void test_piece_interaction(ErrorContext &ec, unsigned int numRuns) {
     }
 }
 
-
+*/
 // - - - - - - - - - - S U R R O U N D I N G S - - - - - - - - - -
 
 // Surroundings (vector of enums of type PieceType) smoke test
-void test_surroundings_smoketest(ErrorContext &ec) {
+/*void test_surroundings_smoketest(ErrorContext &ec) {
     bool pass;
 
     ec.DESC("--- Test - Surroundings - Smoketest ---");
@@ -1267,7 +1267,7 @@ void test_game_populate(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
-
+*/
 
 // Printing of a game
 void test_game_print(ErrorContext &ec, unsigned int numRuns) {
@@ -1345,7 +1345,7 @@ void test_game_print(ErrorContext &ec, unsigned int numRuns) {
 }
 
 // Randomization of motion
-void test_game_randomization(ErrorContext &ec, unsigned int numRuns) {
+/*void test_game_randomization(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
 
     // Run at least once!!

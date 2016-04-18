@@ -31,7 +31,7 @@ Strategic::~Strategic(){
 void Strategic:: print(std::ostream &os) const{
     
     
-    std::cout<<"STRATEGIC@@@@@@@@@@@@@"<<std::endl;
+    os<< STRATEGIC_ID << __id;
     
 }
 
@@ -42,22 +42,3 @@ ActionType Strategic:: takeTurn(const Surroundings &s) const{
     return temp;
     
 }
-
-
-PieceType Piece::getType() const{
-    
-    
-    return PieceType::STRATEGIC;
-}
-std::ostream& Gaming::operator<<(std::ostream &os, const Piece &piece)
-{
-    
-    os << piece.getType() <<piece.__id;
-    
-    return os;
-}
-
-
-
-
-

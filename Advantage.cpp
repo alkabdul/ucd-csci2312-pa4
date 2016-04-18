@@ -32,7 +32,7 @@ double Advantage:: consume(){
     
     
     
-    return 0.0;
+    return __capacity;
 }
 
 double Advantage:: getCapacity() const{
@@ -44,24 +44,8 @@ double Advantage:: getCapacity() const{
 
 void Advantage::print(std::ostream &os)const{
     
-    std::cout<<"ADVANTAGE!!!!!"<<std::endl;
+    os<< ADVANTAGE_ID << __id;
     
-}
-
-
-
-PieceType Piece::getType() const{
-    
-    
-    return PieceType::ADVANTAGE;
-}
-
-std::ostream& Gaming::operator<<(std::ostream &os, const Piece &piece)
-{
-    
-    os << piece.getType() <<piece.__id;
-    
-    return os;
 }
 
 

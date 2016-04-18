@@ -28,28 +28,6 @@ Food::~Food(){
 
 void Food::print(std::ostream &os) const{
     
-    std::cout<<"FOOD$$$$$$$$$$$"<<std::endl;
-    
+    os << FOOD_ID << __id;
     
 }
-
-
-
-
-PieceType Piece::getType() const{
-    
-    
-    return PieceType::FOOD;
-}
-std::ostream& Gaming::operator<<(std::ostream &os, const Piece &piece)
-{
-    
-    os << piece.getType() <<piece.__id;
-    
-    return os;
-}
-
-
-
-
-

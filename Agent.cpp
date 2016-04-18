@@ -52,5 +52,3 @@ Piece& Agent::operator*(Piece &other){
     
     return other;
 }
-
-

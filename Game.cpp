@@ -111,7 +111,8 @@ unsigned int Game:: getNumResources() const{
         }
         
     }
-   
+    
+
     
     return getNumPieces()-getNumAgents();
 
@@ -196,7 +197,8 @@ void Game:: populate(){
     // sufficient for our casual purposes
     std::default_random_engine gen;
     std::uniform_int_distribution<int> d(0, __width * __height);
- 
+    
+   
     // populate Strategic agents
     while (numStrategic > 0) {
         int i = d(gen); // random index in the grid vector
@@ -244,7 +246,7 @@ void Game:: populate(){
         
         
     }
-
+  
     //populate food resources
     while (numFoods > 0) {
         int i = d(gen); // random index in the grid vector
@@ -301,13 +303,37 @@ void Game:: populate(){
 void Game::addSimple(unsigned x, unsigned y){
     
     
+    
     int indexPos= (x*__width)+y;
+    if (y >= __width || x>= __height) {
+        throw OutOfBoundsEx(__width, __height, x, y);
+    }
    
+    if (__grid.at(indexPos)) {
+        throw PositionNonemptyEx(x, y);
+    }
+    
     __grid[indexPos] = new Simple(*this, Position(x,y), STARTING_AGENT_ENERGY);
-;
+    
 
     
 }
+
+//void Game:: addSimple(const Position &position){
+//    
+//    addSimple(position.x, position.y);
+//    
+//    
+//}
+
+
+//void Game::addSimple(unsigned x, unsigned y, double energy){
+//    
+//    
+//    
+//    
+//    
+//}
 void Game::addStrategic(unsigned x, unsigned y, Strategy *s ){
     
     
@@ -360,6 +386,11 @@ void Game::addFood(unsigned x, unsigned y){
     if (__grid.at(y+x*__width) != nullptr) {
         throw PositionNonemptyEx(x, y);
     }
+    if (x >= __height || y >= __width) {
+        throw OutOfBoundsEx(__width, __height, x, y);
+    }
+    
+
 
     int indexPos= (x*__height)+y;
     
@@ -368,9 +399,22 @@ void Game::addFood(unsigned x, unsigned y){
 
 }
 
+//void Game::addFood(const Position &position){
+//    
+//    
+//    addFood(position.x, position.y);
+//    
+//}
+
+
+
+
 void Game:: addAdvantage(unsigned x, unsigned y){
     
-    
+//    if (__grid.at(y+x*__width) != nullptr) {
+//        throw PositionNonemptyEx(x, y);
+//    }
+//    
     if (x >= __height || y >= __width) {
         throw OutOfBoundsEx(__width, __height, x, y);
     }
@@ -382,24 +426,90 @@ void Game:: addAdvantage(unsigned x, unsigned y){
     __grid[indexPos] =new Advantage(*this, Position(x, y), STARTING_RESOURCE_CAPACITY);
     
 }
+//void Game:: addAdvantage(const Position &position){
+//    
+//    addAdvantage(position.x, position.y);
+//    
+//}
+
+
+
 std::ostream& Gaming::operator<<(std::ostream &os, const Game &game){
     
-    
+    os<< "Round " << "0" << endl;
+    int numRaws = game.__height;
+    int numCol = game.__width;
+ int count =0;
+    int c = 0;
+    for (int i=0; i < game.__height; i++)
+    {
+        for (int j=0; j < game.__width; j++)
+        {
+            if (game.__grid[count] == nullptr)
+            {
+                os << "[     ]";
+            }
+            else
+            {
+                os << "[" << *game.__grid[count] << " ]";
+            }
+            count++;
+        }
+        os << std::endl;
+    }
+
     
     return os;
 }
 
-const Piece* Game::getPiece(unsigned int x, unsigned int y) const{
-    
+const Piece* Game::getPiece(unsigned int x, unsigned int y)const
+{
     int pos = 0;
     
-    pos =__width * x + y;
+       pos =__width * x + y;
     
-    return __grid.at(pos);
+    if (__grid.at(pos)==nullptr) {
+        throw PositionEmptyEx(x, y);
+    }
+    
+        return __grid.at(pos);
+    
     
 }
 
-
-
-
-
+//const Surroundings Game::getSurroundings(const Position &pos) const{
+//    Surroundings mySur;
+//    vector<int> deltaXy;
+//    deltaXy.push_back(-1);
+//    deltaXy.push_back(0);
+//    deltaXy.push_back(1);
+//    int surPos = 0;
+//    for (int x: deltaXy) {
+//        for (int y: deltaXy) {
+//            
+//            if (pos.x+x >= __height || pos.y+y >= __width) {
+//                mySur.array[surPos] = INACCESSIBLE;
+//                
+//            }
+//            else if ( __grid.at((pos.x+x) * __width + (pos.y+y)) == nullptr ){
+//                
+//                mySur.array[surPos] = EMPTY;
+//                
+//            }
+//            else{
+//                
+//                mySur.array[surPos] = getPiece(pos.x+y, pos.y+y) -> getType();
+//                
+//            }
+//            surPos++;
+//            
+//            
+//            
+//        }
+//    }
+//    mySur.array[4] =SELF;
+//    return mySur;
+//    
+//    
+//    
+//}

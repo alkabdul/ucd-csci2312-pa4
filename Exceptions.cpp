@@ -90,7 +90,12 @@ __name ="PositionNonemptyEx";
     
     
 }
-
+PositionEmptyEx::PositionEmptyEx(unsigned x , unsigned y):PositionEx(x,y){
+    
+    __name = "PositionEmptyEx";
+    
+    
+}
 
 
 

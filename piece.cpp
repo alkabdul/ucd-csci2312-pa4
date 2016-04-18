@@ -24,3 +24,10 @@ Piece::Piece(const Game &g, const Position &p):__game(g), __position(p){
     
     
 }
+
+std::ostream& Gaming:: operator<<(std::ostream &os, const Piece &piece){
+    
+    piece.print(os);
+    return os;
+    
+}
