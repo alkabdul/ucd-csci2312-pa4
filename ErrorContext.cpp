@@ -1,16 +1,4 @@
-//
-// Created by Ivo Georgiev on 11/22/15.
-//
-
-//
-// Created by Ivo Georgiev on 11/13/15.
-//
-
 #include "ErrorContext.h"
-
-/**
- * Acknowledgement: Donnie Pinkston, CALTECH
- */
 
 #include <cassert>
 #include <cstdlib>

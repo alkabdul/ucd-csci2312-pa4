@@ -20,28 +20,28 @@ void test_piece_smoketest(ErrorContext &ec);
 void test_piece_print(ErrorContext &ec, unsigned int numRuns);
 
 // Piece aging and viability
-//void test_piece_aging(ErrorContext &ec, unsigned int numRuns);
+void test_piece_aging(ErrorContext &ec, unsigned int numRuns);
 
 // Piece energy/capacity
 void test_piece_energy(ErrorContext &ec, unsigned int numRuns);
 
 // Taking turns
-/*void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns);
+void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns);
 
 // Piece interaction operator*
 void test_piece_interaction(ErrorContext &ec, unsigned int numRuns);
-*/
+
 
 // - - - - - - - - - Tests: struct Surroundings - - - - - - - - - -
 
 // Surroundings (vector of enums of type PieceType)
-//void test_surroundings_smoketest(ErrorContext &ec);
+void test_surroundings_smoketest(ErrorContext &ec);
 
 
 // - - - - - - - - - Tests: enum ActionType - - - - - - - - - -
 
 // Action smoke test
-//void test_action_smoketest(ErrorContext &ec);
+void test_action_smoketest(ErrorContext &ec);
 
 
 // - - - - - - - - - Tests: class Game - - - - - - - - - -
@@ -59,9 +59,9 @@ void test_game_getpiece(ErrorContext &ec, unsigned int numRuns);
 void test_game_print(ErrorContext &ec, unsigned int numRuns);
 
 // Randomization of motion
-/*void test_game_randomization(ErrorContext &ec, unsigned int numRuns);
+void test_game_randomization(ErrorContext &ec, unsigned int numRuns);
 
 // Playing and termination of a game
 void test_game_play(ErrorContext &ec, unsigned int numRuns);
-*/
+
 #endif //PA5GAME_GAMINGTESTS_H

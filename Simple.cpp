@@ -1,45 +1,53 @@
-//
-//  Simple.cpp
-//  PA4
-//
-//  Created by Abdulrahman Alkaabi on 4/13/16.
-//  Copyright © 2016 Abdulrahman Alkaabi. All rights reserved.
-//
-
-#include <stdio.h>
+#include "Game.h"
+#include "Agent.h"
 #include "Simple.h"
 
-using namespace Gaming;
-const char Simple::SIMPLE_ID = 'S';
+const char Gaming::Simple::SIMPLE_ID = 'S';
 
+Gaming::Simple::Simple(const Gaming::Game &g, const Gaming::Position &p, double energy) : Agent(g,p,energy){}
 
-Simple::Simple(const Game &g, const Position &p, double energy):Agent(g,p, energy){
-    
-    setPosition(p);
-    setTurned(false);
+Gaming::Simple::~Simple() {}
+
+void Gaming::Simple::print(std::ostream &os) const {
+    os << SIMPLE_ID;
 }
 
-Simple::~Simple(){
-    
-    
+Gaming::ActionType Gaming::Simple::takeTurn(const Gaming::Surroundings &s) const {
+
+    std::size_t act = 4;
+    for(std::size_t i = 0; i < 9; i++){
+        if(s.array[i] == FOOD || s.array[i] == ADVANTAGE){
+            act = i;
+            break;
+        }else if(act == 4){
+            if(s.array[i] == EMPTY){
+                act = i;
+            }
+        }
+    }
+
+    switch(act){
+        case 0:
+            return NW;
+        case 1:
+            return N;
+        case 2:
+            return NE;
+        case 3:
+            return W;
+        case 4:
+            return STAY;
+        case 5:
+            return E;
+        case 6:
+            return SW;
+        case 7:
+            return S;
+        case 8:
+            return SE;
+        default:
+            return STAY;
+    }
 }
-
-void Simple:: print(std::ostream &os) const{
-    
-    
-    os<<SIMPLE_ID << __id;
-    
-}
-
-ActionType Simple::takeTurn(const Surroundings &s) const{
-    
-    
-    ActionType temp = NW;
-    return temp;
-    
-    
-}
-
-
 
 

@@ -1,30 +1,18 @@
+#include <iostream>
+#include "DefaultAgentStrategy.h"
 #include "Game.h"
-#include "AggressiveAgentStrategy.h"
 
-const double Gaming::AggressiveAgentStrategy::DEFAULT_AGGRESSION_THRESHOLD = Gaming::Game::STARTING_AGENT_ENERGY * 0.75;
+Gaming::DefaultAgentStrategy::DefaultAgentStrategy() : Strategy(){}
 
-Gaming::AggressiveAgentStrategy::AggressiveAgentStrategy(double agentEnergy) : Strategy(){
-    __agentEnergy = agentEnergy;
-}
+Gaming::DefaultAgentStrategy::~DefaultAgentStrategy() {}
 
-Gaming::AggressiveAgentStrategy::~AggressiveAgentStrategy() {}
+Gaming::ActionType Gaming::DefaultAgentStrategy::operator()(const Gaming::Surroundings &s) const {
 
-Gaming::ActionType Gaming::AggressiveAgentStrategy::operator()(const Gaming::Surroundings &s) const {
     std::size_t act = 4;
-    if(__agentEnergy >= DEFAULT_AGGRESSION_THRESHOLD) {
-        for (std::size_t i = 0; i < 9; i++) {
-            if (s.array[i] == SIMPLE || s.array[i] == STRATEGIC) {
-                act = i;
-                break;
-            }
-        }
-    }
-    if(act == 4) {
-        for (std::size_t i = 0; i < 9; i++) {
-            if(s.array[i] == ADVANTAGE){
-                act = i;
-                break;
-            }
+    for(std::size_t i = 0; i < 9; i++){
+        if(s.array[i] == ADVANTAGE){
+            act = i;
+            break;
         }
     }
     if(act == 4) {
@@ -38,6 +26,14 @@ Gaming::ActionType Gaming::AggressiveAgentStrategy::operator()(const Gaming::Sur
     if(act == 4) {
         for (std::size_t i = 0; i < 9; i++) {
             if(s.array[i] == EMPTY){
+                act = i;
+                break;
+            }
+        }
+    }
+    if(act == 4) {
+        for (std::size_t i = 0; i < 9; i++) {
+            if(s.array[i] == SIMPLE){
                 act = i;
                 break;
             }

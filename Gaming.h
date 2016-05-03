@@ -1,7 +1,3 @@
-//
-// Created by Ivo Georgiev on 11/22/15.
-//
-
 #ifndef PA5GAME_GAMING_H
 #define PA5GAME_GAMING_H
 
@@ -37,24 +33,29 @@ namespace Gaming {
     class PositionRandomizer {
         std::default_random_engine __gen;
         std::uniform_int_distribution<int> *__dist[10];
-
     public:
         PositionRandomizer() {
             for (int i = 0; i < 10; i++)
                 __dist[i] = new std::uniform_int_distribution<int>(0, i);
         }
-
         ~PositionRandomizer() {
             for (int i = 0; i < 10; i++) delete __dist[i];
         }
-
-        const Position operator()(const std::vector<int> &positionIndices) {
-            if (positionIndices.size() == 0) throw PosVectorEmptyEx();
-
+		
+        const Position operator()(const std::vector<int> &positionIndices) { // TODO EmptyPosVectorEx
+		
+			if (positionIndices.empty())
+			{
+				PosVectorEmptyEx ex; 
+				throw ex;
+			}
+			
+			for (int i = 0; i < 10; i++)
+                __dist[i] = new std::uniform_int_distribution<int>(0, i);
+			
             int posIndex = (*__dist[positionIndices.size() - 1])(__gen);
             return Position(
-                    (unsigned) (positionIndices[posIndex] / 3),
-                    (unsigned) (positionIndices[posIndex] % 3));
+                    (unsigned) (positionIndices[posIndex] / 3),                    (unsigned) (positionIndices[posIndex] % 3));
         }
     };
 

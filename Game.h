@@ -1,7 +1,3 @@
-//
-// Created by Ivo Georgiev on 11/22/15.
-//
-
 #ifndef PA5GAME_GAME_H
 #define PA5GAME_GAME_H
 
@@ -11,6 +7,7 @@
 
 #include "Gaming.h"
 #include "DefaultAgentStrategy.h"
+#include "Exceptions.h"
 
 namespace Gaming {
 
@@ -49,8 +46,8 @@ namespace Gaming {
 
         Game();
         Game(unsigned width, unsigned height, bool manual = true); // note: manual population by default
-        Game(const Game &another);
-        Game &operator=(const Game &other) = delete;
+        Game(const Game &) = delete;
+        Game &operator=(const Game &) = delete;
         ~Game();
 
         // getters
@@ -78,7 +75,7 @@ namespace Gaming {
         void addAdvantage(unsigned x, unsigned y);
         const Surroundings getSurroundings(const Position &pos) const;
 
-        // gameplay methods
+        // gameplay 
         static const ActionType reachSurroundings(const Position &from, const Position &to); // note: STAY by default
         static const Position randomPosition(const std::vector<int> &positions) { // note: from Surroundings as an array
             return __posRandomizer(positions);

@@ -1,33 +1,12 @@
-//
-//  Food.cpp
-//  PA4
-//
-//  Created by Abdulrahman Alkaabi on 4/13/16.
-//  Copyright © 2016 Abdulrahman Alkaabi. All rights reserved.
-//
-
-#include <stdio.h>
+#include "Game.h"
 #include "Food.h"
 
-using namespace Gaming;
+const char Gaming::Food::FOOD_ID = 'F';
 
-const char Food::FOOD_ID = 'F';
+Gaming::Food::Food(const Gaming::Game &g, const Gaming::Position &p, double capacity) : Resource(g,p,capacity){}
 
+Gaming::Food::~Food() {}
 
-Food::Food(const Game &g, const Position &p, double capacity):Resource(g,p,capacity){
-    
-    
-    
-}
-
-Food::~Food(){
-    
-    
-    
-}
-
-void Food::print(std::ostream &os) const{
-    
-    os << FOOD_ID << __id;
-    
+void Gaming::Food::print(std::ostream &os) const {
+    os << FOOD_ID;
 }

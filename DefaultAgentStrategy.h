@@ -1,7 +1,3 @@
-//
-// Created by Ivo Georgiev on 12/8/15.
-//
-
 #ifndef PA5GAME_DEFAULTAGENTSTRATEGY_H
 #define PA5GAME_DEFAULTAGENTSTRATEGY_H
 

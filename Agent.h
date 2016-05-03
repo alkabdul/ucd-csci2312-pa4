@@ -1,7 +1,3 @@
-//
-// Created by Ivo Georgiev on 11/22/15.
-//
-
 #ifndef PA5GAME_AGENT_H
 #define PA5GAME_AGENT_H
 

@@ -13,6 +13,7 @@
 #include "Food.h"
 #include "Advantage.h"
 #include "AggressiveAgentStrategy.h"
+#include "Exceptions.h"
 
 using namespace Gaming;
 using namespace Testing;
@@ -114,7 +115,7 @@ void test_piece_print(ErrorContext &ec, unsigned int numRuns) {
 }
 
 // Piece aging and viability
-/*void test_piece_aging(ErrorContext &ec, unsigned int numRuns) {
+void test_piece_aging(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
 
     // Run at least once!!
@@ -185,7 +186,7 @@ void test_piece_print(ErrorContext &ec, unsigned int numRuns) {
 
     }
 }
-*/
+
 // Piece energy/capacity
 void test_piece_energy(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
@@ -220,7 +221,7 @@ void test_piece_energy(ErrorContext &ec, unsigned int numRuns) {
 }
 
 // Taking turns
-/*void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
+void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
 
     // Run at least once!!
@@ -637,11 +638,11 @@ void test_piece_interaction(ErrorContext &ec, unsigned int numRuns) {
     }
 }
 
-*/
+
 // - - - - - - - - - - S U R R O U N D I N G S - - - - - - - - - -
 
 // Surroundings (vector of enums of type PieceType) smoke test
-/*void test_surroundings_smoketest(ErrorContext &ec) {
+void test_surroundings_smoketest(ErrorContext &ec) {
     bool pass;
 
     ec.DESC("--- Test - Surroundings - Smoketest ---");
@@ -881,7 +882,7 @@ void test_action_smoketest(ErrorContext &ec) {
         pass = pass && (Game::reachSurroundings(simpos, newpos) == ActionType::SW);
     }
     ec.result(pass);
-}*/
+}
 
 
 // - - - - - - - - - - G A M E - - - - - - - - - -
@@ -1064,7 +1065,7 @@ void test_game_populate(ErrorContext &ec, unsigned int numRuns) {
 }
 
 // Getting a Piece by position
-/*void test_game_getpiece(ErrorContext &ec, unsigned int numRuns){
+void test_game_getpiece(ErrorContext &ec, unsigned int numRuns){
     bool pass;
 
     // Run at least once!!
@@ -1267,7 +1268,7 @@ void test_game_populate(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
-*/
+
 
 // Printing of a game
 void test_game_print(ErrorContext &ec, unsigned int numRuns) {
@@ -1345,7 +1346,7 @@ void test_game_print(ErrorContext &ec, unsigned int numRuns) {
 }
 
 // Randomization of motion
-/*void test_game_randomization(ErrorContext &ec, unsigned int numRuns) {
+void test_game_randomization(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
 
     // Run at least once!!
@@ -1368,7 +1369,7 @@ void test_game_print(ErrorContext &ec, unsigned int numRuns) {
                 pos = Game::randomPosition(positions);
                 ++ counts[pos.x * 3 + pos.y];
             }
-
+			
             pass = counts[0] > 100 &&
                     counts[1] > 100 &&
                     counts[2] > 100 &&
@@ -1578,9 +1579,12 @@ void test_game_play(ErrorContext &ec, unsigned int numRuns) {
             g.addFood(0, 2);
             g.addFood(2, 2);
             g.addAdvantage(1, 0);
+			
+			std::cout << "ASKHBDHBSD" << std::endl ;
 
             g.play(false); // verbose = false, by default
-
+			
+			
             pass = (g.getNumResources() == 0) &&
                    (g.getNumStrategic() == 1);
 
@@ -1654,4 +1658,4 @@ void test_game_play(ErrorContext &ec, unsigned int numRuns) {
             ec.result(pass);
         }
     }
-}*/
+}

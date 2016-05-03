@@ -1,54 +1,39 @@
-//
-//  Agent.cpp
-//  PA4
-//
-//  Created by Abdulrahman Alkaabi on 4/13/16.
-//  Copyright © 2016 Abdulrahman Alkaabi. All rights reserved.
-//
-
-#include <stdio.h>
+#include "Game.h"
+#include "Piece.h"
 #include "Agent.h"
+#include "Resource.h"
 
-using namespace Gaming;
+const double Gaming::Agent::AGENT_FATIGUE_RATE = 0.3;
 
-const double Agent::AGENT_FATIGUE_RATE = 0.3;
+Gaming::Agent::Agent(const Gaming::Game &g, const Gaming::Position &p, double energy) : Piece(g,p), __energy(energy){}
 
-Agent::Agent(const Game &g, const Position &p, double energy):Piece(g,p){
-    
-    
-    __energy = energy;
-    
-    
-}
-void Agent::age(){
-    
-    
+Gaming::Agent::~Agent() {}
+
+void Gaming::Agent::age() {
     __energy -= AGENT_FATIGUE_RATE;
-    
-    
-}
-Piece& Agent::interact(Agent *){
-    
-    Agent *a = this;
-    
-    return *this;
-    
-    
+    if(!isViable()){
+        finish();
+    }
 }
 
-Piece& Agent::interact(Resource *){
-    
-    
-    return *this;
-    
-}
-Agent::~Agent(){
-    
-    
+Gaming::Piece &Gaming::Agent::operator*(Gaming::Piece &other) {
+    return other.interact(this);
 }
 
-Piece& Agent::operator*(Piece &other){
-    
-    
-    return other;
+Gaming::Piece &Gaming::Agent::interact(Gaming::Agent *agent) {
+    if(__energy == agent->__energy){
+        finish(); agent->finish();
+    }else if(__energy < agent->__energy){
+        agent->__energy -= __energy;
+        finish();
+    }
+    else{
+        __energy -= agent->__energy;
+        agent->finish();
+    }
+    return *this;
+}
+
+Gaming::Piece &Gaming::Agent::interact(Gaming::Resource *resource) {
+    return *this;
 }
